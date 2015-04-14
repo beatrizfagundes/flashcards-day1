@@ -10,4 +10,18 @@ app.controller('FlashCardController', function ($scope) {
         	{ text: 'Some kind of fish, right?', correct: false }
     	]
 	};
+
+	$scope.answered = false;
+	$scope.answeredCorrectly = false;
+	$scope.answerQuestion = function(answer) {
+		if ($scope.answered == false) {
+			
+			if (answer.correct == true) {
+				$scope.answeredCorrectly = true;
+			}
+
+			$scope.answered = true;
+		}
+	};
+
 });
