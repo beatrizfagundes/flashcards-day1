@@ -11,15 +11,15 @@
     <body>
     	<div ng-app="FlashCards" ng-controller="MainController">
     		<ul>
-    			<li ng-repeat="fCard in flashCards">
+    			<li ng-repeat="fCard in flashCards | orderBy: 'question'">
     				<div class="flash-card" ng-controller="FlashCardController">
-    					<h1>{{ fCard.question }}</h1>
+    					<h1>{{ fCard.question | uppercase }}</h1>
    						<ul class="flash-card-answers">
         					<li class="flash-card-answer" ng-repeat="answer in fCard.answers" ng-click="answerQuestion(answer)">
             					{{ answer.text }}
         					</li>
    						</ul>
-   						<h2 class="answer-feedback" ng-show="answered">
+   						<h2 class="answer-feedback" ng-class="{ correct: answeredCorrectly, incorrect: !answeredCorrectly }" ng-show="answered">
     						<span ng-show="answeredCorrectly">Yeah, you got it right!</span>
     						<span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
 						</h2>
