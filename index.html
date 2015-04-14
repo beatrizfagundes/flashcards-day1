@@ -10,8 +10,8 @@
     </head>
     <body>
     	<div ng-app="FlashCards">
-    		<div class="flash-card">
-    			<h1>Is this a flash card?</h1>
+    		<div class="flash-card" ng-controller="FlashCardController">
+    			<h1>{{ flashCard.question }}</h1>
     			<ul class="flash-card-answers">
         			<li class="flash-card-answer">
             			I mean, yeah.
